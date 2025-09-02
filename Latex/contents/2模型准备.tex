@@ -5,7 +5,7 @@
 
 \begin{figure}[htbp]
 	\centering
-	% \includegraphics[width=0.8\textwidth]{图_数据预处理机制.png}
+	\includegraphics[width=\textwidth]{figs/2模型准备/数据预处理图.pdf}
 	\caption{数据预处理机制}
 	\label{fig:数据预处理机制}
 \end{figure}
@@ -50,8 +50,8 @@
 最后我们检测了高钾玻璃和铅钡玻璃以及它们中风化和未风化的占比，如图\ref{fig:玻璃类型分布}所示：
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.8\textwidth]{figs/2模型准备/类型与风化嵌套饼图.png}
-	\caption{玻璃类型分布}
+	\includegraphics[width=0.5\textwidth]{figs/2模型准备/类型与风化嵌套饼图.png}
+	\caption{类型与风化嵌套饼图}
 	\label{fig:玻璃类型分布}
 \end{figure}
 从图中可以看出，类型、风化这两个核心分类变量的样本量均衡，故后续建模无需进行特殊的不平衡处理。
@@ -67,7 +67,7 @@
 
 \subsection{数据量化}
 
-本文为了便于后续相关数学模型的建立与求解，增强可理解性，进一步将合并后的文件中的名称进行数据量化。对于作为因变量的“类型”列，我们使用标签编码，将“铅钡”映射为 0，“高钾”映射为 1。对于作为自变量的各项分类特征列，为了避免引入虚假的、不存在的顺序和距离关系，我们排除了顺序编码和RGB向量的方案，最终选择了最忠实于数据本身特性的独热编码。数据量化的具体细节如表所示：
+本文为了便于后续相关数学模型的建立与求解，增强可理解性，进一步将合并后的文件中的名称进行数据量化。对于作为因变量的“类型”列，我们使用标签编码，将“铅钡”映射为 0，“高钾”映射为 1。对于作为自变量的各项分类特征列，为了避免引入虚假的、不存在的顺序和距离关系，我们排除了顺序编码和RGB向量的方案，最终选择了最忠实于数据本身特性的独热编码。数据量化的具体细节如表\ref{tab:quantification_example}所示：
 \begin{table}[h!]
 	\centering
 	\caption{数据量化方法示例}
@@ -78,17 +78,14 @@
 		\textbf{列名} & \textbf{原始数据形态}               & \textbf{量化方法} & \textbf{量化后形态}                                \\
 		\midrule
 		\rowcolor{gray!20}
-		类型          & \texttt{['高钾', '铅钡']}         & 标签编码          & \texttt{[1, 0]}                               \\
-		表面风化        & \texttt{['风化', '无风化']}        & 独热编码          & 表面风化\_风化 \texttt{[1 / 0]} \\
+		类型          & \texttt{[高钾, 铅钡]}         & 标签编码          & [1,0]                        \\
+		表面风化        & \texttt{[风化, 无风化]}        & 独热编码          & [1,0] \\
 		\rowcolor{gray!20}
-		颜色          & \texttt{['蓝绿', '浅蓝', ...]}    & 独热编码          & \parbox{4cm}{\centering 颜色\_蓝绿 \texttt{[1/0]} \\ 颜色\_浅蓝 \texttt{[1/0]} \\ ···} \\
-		纹饰          & \texttt{['A', 'B', 'C', ...]} & 独热编码          & \parbox{4cm}{\centering 纹饰\_A \texttt{[1/0]}  \\ 纹饰\_B \texttt{[1/0]} \\ ···} \\
-		\rowcolor{gray!20}
+		颜色          & \texttt{[蓝绿, 浅蓝, ...]}    & 独热编码          & [00000001,00000010,...] \\
+		纹饰          & \texttt{[A,B,C]} & 独热编码          & [001,010,100] \\
+				\rowcolor{gray!20}
 		各类化学成分比例    & 如 69.33                       & 无需处理          & 69.33                                         \\
 		\bottomrule
 	\end{tabular}
 \end{table}
-
-
-
 

@@ -17,39 +17,25 @@
 
 卡方检验 ($\chi^{2}$ test) 是一种专门用于判断两个或多个分类变量之间是否存在关联的经典统计方法，其核心思想在于比较观测频数与期望频数之间的差异。其中，观测频数是样本数据中各类组合的实际计数值，而期望频数则是在“变量间相互独立”这一零假设下，根据边际概率计算出的理论计数值。检验过程通过计算两者差异的卡方统计量，并将其转换为$P$值来进行判断。在本研究中，我们设定显著性水平为$0.05$，若计算所得的$P$值小于该阈值，则拒绝变量间相互独立的零假设，认为它们之间存在显著的统计学关联。
 
-为直观分析文物表面风化现象与其物理属性的关联，我们制作了一组关系分析的可视化图，如图\ref{fig:关系分析可视化_all}所示。图\ref{fig:relation_type}展示了风化状态在两类玻璃中的分布情况，数据显示，铅钡玻璃的风化样本占其总数的73.5\%，这一比例远高于高钾玻璃的33.3\%。此外，图\ref{fig:relation_pattern}与图\ref{fig:relation_color}进一步展示了风化样本在不同纹饰和颜色类别下的数量分布。所有纹饰为B的样本均为风化样本，而纹饰为A的样本中风化与未风化数量相同。在不同颜色中，浅蓝色样本的风化数量为20，远超其未风化数量6，而蓝绿色样本中两者的数量则基本持平。这些在不同类别下风化比例与数量的显著差异，直观地表明表面风化与文物的物理属性并非相互独立。
+为直观分析文物表面风化现象与其物理属性的关联，我们制作了关系分析的可视化图，如图\ref{fig:关系分析可视化}所示。图中第一部分展示了风化状态在两类玻璃中的分布情况。数据显示，铅钡玻璃的风化样本占其总数的73.5\%，这一比例远高于高钾玻璃的33.3\%。图中第二部分与第三部分则进一步展示了风化样本在不同纹饰和颜色类别下的数量分布。所有纹饰为B的样本均为风化样本，而纹饰为A的样本中风化与未风化数量相同。在不同颜色中，浅蓝色样本的风化数量为20，远超其未风化数量6，而蓝绿色样本中两者的数量则基本持平。这些在不同类别下风化比例与数量的显著差异直观地表明表面风化与文物的物理属性并非相互独立。
+
+
+
+
 
 \begin{figure}[H]
-	\centering
-	% 上方并排的两个子图
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/3问题一/风化与纹饰的关系.png}
-		\caption{风化与纹饰的关系}
-		\label{fig:relation_pattern}
-	\end{subfigure}
-	\hfill % 用于在两个子图之间产生弹性空间
-	\begin{subfigure}[b]{0.49\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/3问题一/风化与玻璃类型的关系.png}
-		\caption{风化与玻璃类型的关系}
-		\label{fig:relation_type}
-	\end{subfigure}
 
-	\vspace{0.5cm} % 增加一些垂直间距
+\centering
 
-	% 下方居中的单个子图
-	\begin{subfigure}[b]{0.8\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{figs/3问题一/风化与颜色的关系.png}
-		\caption{风化与颜色的关系}
-		\label{fig:relation_color}
+\includegraphics[width=\textwidth]{figs/3问题一/问题一_关系分析可视化_组合图_黄金分割.png}
 
-	\end{subfigure}
+\caption{表面风化与类型、纹饰及颜色的关系可视化}
 
-	\caption{表面风化与文物物理属性的关联性可视化}
-	\label{fig:关系分析可视化_all}
+\label{fig:关系分析可视化}
+
 \end{figure}
+
+
 
 
 \subsection{风化对两类玻璃化学成分含量的影响规律}
